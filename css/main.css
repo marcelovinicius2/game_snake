@@ -1,0 +1,29 @@
+body {
+    height: 95vh;
+    width: 95;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: rgb(9, 89, 238);
+}
+
+.titulo {
+    font-family: 'Georgia', Times New Roman, Times, serif;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(0, 0, 0);
+    color: rgb(186, 194, 194);
+}
+
+.dev {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 12px;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(242, 241, 241);
+}
