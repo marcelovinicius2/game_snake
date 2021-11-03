@@ -18,6 +18,11 @@ body {
     color: rgb(186, 194, 194);
 }
 
+.arena {
+    margin: 1px;
+    display: flex;
+}
+
 .dev {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 12px;
