@@ -1,9 +1,7 @@
-let canvas = document.getElementById("snake"); // ELEMENTO QUE IRÁ RODAR O JOGO
-let context = canvas.getContext("2d");
+let canvas = document.getElementById("snake"); // Elemento que irá rodar o jogo 
 let box = 32;
-let snake = []; // COBRA COMO UMA LISTA, JÁ QUE ELA VAI SER UMA SÉRIE DE COORDENADAS, QUE QUANDO PINTADAS CRIAM OS QUADRADINHOS
-snake[0] = {
-    x: 8 * box,
+let snake = []; //A cobrinha como uma Lista
+x: 8 * box,
     y: 8 * box
 }
 let direction = "right";
@@ -14,7 +12,7 @@ let food = {
 
 function criarBG() {
     context.fillStyle = "lightgreen";
-    context.fillRect(0, 0, 16 * box, 16 * box); // DESENHA O RETÂNGULO USANDO X E Y COM LARGURA E ALTURA SETADAS
+    context.fillRect(0, 0, 16 * box, 16 * box); // Desenha o retangulo.
 }
 
 function criarCobra() {
@@ -36,20 +34,20 @@ function update(event) {
     if (event.keyCode == 40 && direction != 'up') direction = 'down';
 }
 
-document.addEventListener('keydown', update); // QUANDO UM EVENTO DE TECLADO ACONTECE, DETECTA E CHAMA A FUNÇÃO UPDATE
+document.addEventListener('keydown', update); // Detecta e chama o update.
 
 function iniciarJogo() {
-    // SAIU DA TELA, RETORNA PARA A TELA
+    // SAIU DA TELA, Retorna a tela
     if (snake[0].x > 15 * box && direction == "right") snake[0].x = 0;
     if (snake[0].x < 0 && direction == 'left') snake[0].x = 16 * box;
     if (snake[0].y > 15 * box && direction == "down") snake[0].y = 0;
     if (snake[0].y < 0 && direction == 'up') snake[0].y = 16 * box;
 
-    // COLISÃO E FIM DO JOGO
+    // Fim do jogo
     for (i = 1; i < snake.length; i++) {
         if (snake[0].x == snake[i].x && snake[0].y == snake[i].y) {
             clearInterval(jogo);
-            alert('Game Over! Try Again! :)');
+            alert('Game Over! :(');
             document.location.reload(true);
         }
     }
@@ -68,7 +66,7 @@ function iniciarJogo() {
     if (direction == "down") snakeY += box;
 
     if (snakeX != food.x || snakeY != food.y) {
-        snake.pop(); // POP REMOVE O ÚLTIMO ELEMENTO DA LISTA
+        snake.pop(); //O pop remove o último item da lista
     } else {
         food.x = Math.floor(Math.random() * 15 + 1) * box;
         food.y = Math.floor(Math.random() * 15 + 1) * box;
@@ -79,7 +77,7 @@ function iniciarJogo() {
         y: snakeY
     }
 
-    snake.unshift(newHead); // UNSHIFT ADICIONA ELEMENTO COMO PRIMEIRO DA LISTA
+    snake.unshift(newHead); //unshift add item como primeiro da lista
 }
 
 let jogo = setInterval(iniciarJogo, 100);
